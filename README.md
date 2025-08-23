@@ -1,2 +1,2 @@
 # 3DAW
-Exercicios da faculdade 3DAW
+Exercicios propostos na faculdade em PHP
