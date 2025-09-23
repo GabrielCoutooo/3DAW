@@ -9,14 +9,15 @@ Inicialmente usaremos arquivos texto(txt) para salvar os usuários.
 As funcionalidades de Perguntas e respostas devem estar disponíveis por tela.
 O código deverá ser em PHP.
 Então deverá ser criado:
+
 1. Criar Perguntas e respostas de multipla escolha.
 2.Criar Perguntas e respostas de texto.
-3. Alterar Perguntas e suas respostas de multipla escolha
-4. Alterar Perguntas com respostas de texto
+3. Alterar Perguntas e suas respostas de multipla escolha.
+4. Alterar Perguntas com respostas de texto.
 5. Listar Perguntas e repostas.
 6. Listar uma Pergunta.
-7. Excluir Pergunta e respostas
-8. CRUD de Usuarios
+7. Excluir Pergunta e respostas.
+8. CRUD de Usuarios.
 
 ### Notas sobre as Decisões do Projeto
 
