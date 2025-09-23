@@ -17,3 +17,16 @@ Então deverá ser criado:
 6. Listar uma Pergunta.
 7. Excluir Pergunta e respostas
 8. CRUD de Usuarios
+
+### Notas sobre as Decisões do Projeto ###
+
+Para a realização deste trabalho, foram tomadas algumas decisões de arquitetura e estilo, visando a clareza e o alinhamento com os objetivos didáticos da disciplina:
+
+* **Estrutura em Arquivo Único:** Todo o código (PHP, CSS e HTML) foi centralizado em um **único arquivo** para simplificar a visualização do fluxo de dados e da lógica do CRUD em um só local.
+
+* **Persistência em Arquivos `.csv`:** Seguindo o modelo proposto em aula e os requisitos da avaliação, os dados são armazenados em arquivos de texto no formato **CSV**.
+
+* **Sintaxe Alternativa do PHP:** Foi utilizada a sintaxe de controle com **`endif`** e **`endforeach`** na parte do HTML para melhorar a legibilidade e a identificação dos blocos de código PHP dentro das TAGS.
+
+* **Segurança:** No CRUD de usuários, foi implementada a função **`password_hash()`** para garantir que as senhas sejam armazenadas de forma segura e criptografada, seguindo as melhores práticas do mercado.
+
