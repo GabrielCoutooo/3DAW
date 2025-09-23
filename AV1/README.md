@@ -19,6 +19,7 @@ Então deverá ser criado:
 7. Excluir Pergunta e respostas.
 8. CRUD de Usuarios.
 
+
 ### Notas sobre as Decisões do Projeto
 
 Para a realização deste trabalho, foram tomadas algumas decisões de arquitetura e estilo, visando a clareza e o alinhamento com os objetivos didáticos da disciplina:
