@@ -10,6 +10,7 @@ As funcionalidades de Perguntas e respostas devem estar disponíveis por tela.
 O código deverá ser em PHP.
 Então deverá ser criado:
 
+
 1. Criar Perguntas e respostas de multipla escolha.
 2.Criar Perguntas e respostas de texto.
 3. Alterar Perguntas e suas respostas de multipla escolha.
