@@ -1,13 +1,15 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['bd'])) {
-    $_SESSION['bd'] = [
+$file = 'perguntas.json';
+if (!file_exists($file)) {
+    $perguntas = [
         "101" => "Qual é a capital do Brasil?",
         "102" => "Quem descobriu o Brasil?",
         "103" => "Quantos planetas existem no sistema solar?"
     ];
+    file_put_contents($file, json_encode($perguntas,JSON_PRETTY_PRINT));
 }
+
+$perguntas = json_decode(file_get_contents($file), true);
 
 $input = json_decode(file_get_contents('php://input'), true);
 
@@ -16,10 +18,10 @@ $codigo = trim($input['codigo'] ?? '');
 $novaPergunta = trim($input['pergunta'] ?? '');
 
 if ($acao === 'buscar') {
-    if (isset($_SESSION['bd'][$codigo])) {
+    if (isset($perguntas[$codigo])) {
         echo json_encode([
             'sucesso' => true,
-            'pergunta' => $_SESSION['bd'][$codigo]
+            'pergunta' => $perguntas[$codigo]
         ]);
     } else {
         echo json_encode([
@@ -31,8 +33,11 @@ if ($acao === 'buscar') {
 }
 
 if ($acao === 'salvar') {
-    if (isset($_SESSION['bd'][$codigo])) {
-        $_SESSION['bd'][$codigo] = $novaPergunta;
+    if (isset($perguntas[$codigo])) {
+        $perguntas[$codigo] = $novaPergunta;
+        
+        file_put_contents($file, json_encode($perguntas,JSON_PRETTY_PRINT));
+
         echo json_encode([
             'sucesso' => true,
             'mensagem' => 'Pergunta atualizada com sucesso.'
