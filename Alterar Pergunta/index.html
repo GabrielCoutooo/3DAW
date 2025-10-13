@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alterar Pergunta (JSON)</title>
+</head>
+<body>
+  <h2>Buscar Pergunta</h2>
+  <form id="buscarForm">
+    <label for="codigo">Código da Pergunta:</label>
+    <input type="text" id="codigo" required />
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div id="formAlterar" style="display:none; margin-top:20px;">
+    <h2>Alterar Pergunta</h2>
+    <form id="alterarForm">
+      <input type="hidden" id="codigoAlterar" />
+      <label for="pergunta">Texto da Pergunta:</label><br />
+      <textarea id="pergunta" rows="4" cols="50" required></textarea><br /><br />
+      <button type="submit">Salvar Alteração</button>
+    </form>
+  </div>
+
+  <div id="mensagem" style="margin-top:20px; font-weight:bold;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
