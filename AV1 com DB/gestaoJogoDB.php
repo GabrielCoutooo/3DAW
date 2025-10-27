@@ -4,6 +4,31 @@ $username = "root";
 $senha = "";
 $database = "gestaoJogoDB";
 $conn = new mysqli($servidor,$username,$senha,$database);
+function salvarPerguntas($conn, $perguntas)
+{
+    foreach ($perguntas as $pergunta) {
+        $sql = "SELECT id FROM perguntas WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $pergunta['id']);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $sql = "UPDATE perguntas SET texto = ?, tipo = ?, respostas = ? WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $respostas_serializadas = json_encode($pergunta['respostas']);
+            $stmt->bind_param("sssi", $pergunta['texto'], $pergunta['tipo'], $respostas_serializadas, $pergunta['id']);
+            $stmt->execute();
+        } else {
+            $sql = "INSERT INTO perguntas (id, texto, tipo, respostas) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $respostas_serializadas = json_encode($pergunta['respostas']);
+            $stmt->bind_param("isss", $pergunta['id'], $pergunta['texto'], $pergunta['tipo'], $respostas_serializadas);
+            $stmt->execute();
+        }
+        $stmt->close();
+    }
+}
 function alterarPergunta($conn, $id, $dados_pergunta)
 {
     $sql = "UPDATE perguntas SET texto = ?, tipo = ?, respostas = ? WHERE id = ?";
@@ -46,7 +71,11 @@ if ($entidade === 'perguntas') {
                 'tipo' => $tipo_pergunta,
                 'respostas' => $respostas
             ];
-                if ($acao === 'alterar' && isset($perguntas[$id_form])) {
+        if ($acao === 'criar') {
+                $novoId = proximoId($perguntas);
+                $perguntas[$novoId] = array_merge(['id' => $novoId], $dados_pergunta);
+                $mensagem = 'Pergunta criada com sucesso!';
+            } else if ($acao === 'alterar' && isset($perguntas[$id_form])) {
                 alterarPergunta($conn,$id_form,$dados_pergunta);
                 $mensagem = 'Pergunta alterada com sucesso!';
             }
