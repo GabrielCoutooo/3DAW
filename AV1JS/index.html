@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestão de Perguntas e Usuários</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gestão</h1>
+
+    <div id="mensagem" aria-live="polite"></div>
+
+    <div style="margin-bottom:16px">
+      <button onclick="listar('perguntas')">Perguntas</button>
+      <button onclick="listar('usuarios')">Usuários</button>
+    </div>
+
+    <form id="formulario" onsubmit="enviarFormulario(event)">
+      <div id="campos"></div>
+      <button type="submit">Salvar</button>
+    </form>
+
+    <h2>Lista</h2>
+    <div id="area-lista"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
