@@ -2,27 +2,31 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alterar Pergunta (JSON)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>Buscar Pergunta</h2>
-  <form id="buscarForm">
-    <label for="codigo">Código da Pergunta:</label>
-    <input type="text" id="codigo" required />
-    <button type="submit">Buscar</button>
-  </form>
-
-  <div id="formAlterar" style="display:none; margin-top:20px;">
-    <h2>Alterar Pergunta</h2>
-    <form id="alterarForm">
-      <input type="hidden" id="codigoAlterar" />
-      <label for="pergunta">Texto da Pergunta:</label><br />
-      <textarea id="pergunta" rows="4" cols="50" required></textarea><br /><br />
-      <button type="submit">Salvar Alteração</button>
+  <div class="container">
+    <h2>Buscar Pergunta</h2>
+    <form id="buscarForm">
+      <label for="codigo">Código da Pergunta:</label>
+      <input type="text" id="codigo" placeholder="Ex: 101, 102, 103" required />
+      <button type="submit">Buscar</button>
     </form>
-  </div>
 
-  <div id="mensagem" style="margin-top:20px; font-weight:bold;"></div>
+    <div id="formAlterar" style="display:none;">
+      <h2>Alterar Pergunta</h2>
+      <form id="alterarForm">
+        <input type="hidden" id="codigoAlterar" />
+        <label for="pergunta">Texto da Pergunta:</label>
+        <textarea id="pergunta" placeholder="Digite o novo texto da pergunta..." required></textarea>
+        <button type="submit">Salvar Alteração</button>
+      </form>
+    </div>
+
+    <div id="mensagem"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
