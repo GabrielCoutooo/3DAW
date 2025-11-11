@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Alunos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Gerenciamento de Alunos</h1>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2 id="form-title">Adicionar Novo Aluno</h2>
+                <form id="form-aluno" class="form-aluno">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite o nome do aluno">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="matricula">Matrícula:</label>
+                        <input type="text" id="matricula" name="matricula" required placeholder="Digite a matrícula">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Digite o email">
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary" id="btn-submit">Adicionar Aluno</button>
+                        <button type="button" class="btn btn-secondary" id="btn-cancelar" style="display: none;">Cancelar Edição</button>
+                    </div>
+                </form>
+                <div id="mensagem" class="mensagem"></div>
+            </section>
+
+            <section class="list-section">
+                <h2>Lista de Alunos</h2>
+                <div id="loading" class="loading" style="display: none;">Carregando...</div>
+                <div id="lista-vazia" class="lista-vazia">Nenhum aluno cadastrado</div>
+                <table id="tabela-alunos" class="tabela-alunos" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>Email</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-alunos">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
